@@ -1,22 +1,17 @@
-CREATE TABLE Menu(
-      ItemID INT PRIMARY KEY,
-      ItemName VARCHAR(50),
-      Category VARCHAR(50),
-      Price INT,
-      IsAvailable BOOLEAN
+CREATE TABLE Patients(
+    PatientID INT PRIMARY KEY,
+    PatientName VARCHAR(50),
+    PatientPhoneNo VARCHAR(15),
+    Status VARCHAR(50)
 );
 
-INSERT INTO Menu (ItemID, ItemName, Category, Price, IsAvailable)
+INSERT INTO Patients (PatientID, PatientName, PatientPhoneNo, Status)
 VALUES
-(1, 'Zinger Burger', 'Burgers', 450, TRUE),
-(2, 'Chicken Burger', 'Burgers', 550, TRUE),
-(3, 'Beef Burger', 'Burgers', 900, TRUE),
-(4, 'Veg Burger', 'Burgers', 350, FALSE),
-(5, 'Pizza', 'Pizza', 700, TRUE);
+(1,'Ali','098765','Admitted'),
+(2,'Ali','098765','Admitted'),
+(3,'Ahmad','098765','Admitted'),
+(4,'Alian','098765','Admitted');
 
-SELECT ItemName, Price
-FROM Menu
-WHERE Category = 'Burgers'
-AND Price < 800
-AND IsAvailable = TRUE
-ORDER BY Price ASC;
+UPDATE Patients
+SET Status = 'Discharged'
+WHERE PatientID = 1 AND PatientName = 'Ali';
